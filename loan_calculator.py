@@ -103,9 +103,9 @@ class SimpleLoanCalculator(object):
         monthly compounding interest.
 
         Returns:
-            - the total future amount due
-            - percentage annual interest
-            - monthly repayment amount
+            - the total future amount due (2dp)
+            - percentage interest rate (1dp)
+            - monthly repayment amount (2dp)
 
         Using the formula :
 
@@ -115,7 +115,7 @@ class SimpleLoanCalculator(object):
 
         A = the future amount, including interest
         P = the principal amount (the initial loan amount)
-        r = the annual interest rate (decimal)
+        r = the interest rate (decimal)
         n = the number of times that interest is compounded per year
         t = the number of years the money is borrowed for
         """
@@ -128,4 +128,5 @@ class SimpleLoanCalculator(object):
         monthly_repayments = \
             A / (SimpleLoanCalculator.LOAN_BORROW_LENGTH_YEARS * 12)
 
+        # return the rounded off values ...
         return round(A, 2), round(r * 100, 1), round(monthly_repayments, 2)
